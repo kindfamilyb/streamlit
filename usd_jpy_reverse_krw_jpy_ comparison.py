@@ -25,14 +25,14 @@ jpy_krw_close = jpy_krw['Close']
 jpy_usd_close = jpy_usd['Close']
 
 # USD/JPY 환율을 JPY/USD로 변환
-jpy_usd_close = 1 / jpy_usd_close
+jpy_usd_close_r = 1 / jpy_usd_close
 
 # # 정규화
 jpy_krw_close_norm = jpy_krw_close / jpy_krw_close.iloc[0]
-jpy_usd_close_norm = jpy_usd_close / jpy_usd_close.iloc[0]
+jpy_usd_close_r_norm = jpy_usd_close_r / jpy_usd_close_r.iloc[0]
 
 # # 데이터프레임 합치기
-data_norm = pd.DataFrame({'jpy_krw': jpy_krw_close_norm, 'jpy_usd': jpy_usd_close_norm})
+data_norm = pd.DataFrame({'jpy_krw': jpy_krw_close_norm, 'jpy_usd': jpy_usd_close_r_norm})
 
 # # NaN 값 제거
 data_norm.dropna(inplace=True)
